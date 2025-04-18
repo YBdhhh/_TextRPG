@@ -316,8 +316,8 @@ namespace SpartaTextRPG
                     Console.WriteLine("캐릭터의 정보가 표시됩니다.\n");
                     Console.WriteLine($"Lv. {player.lv} ");
                     Console.WriteLine($"{player.player_Name}  ({player.player_Class})");
-                    Console.WriteLine($"공격력 :  {player.player_AttackPower} ");
-                    Console.WriteLine($"방어력 :  {player.player_DeffencePower} ");
+                    Console.WriteLine($"공격력 :  {player.player_AttackPower} ");      // 아이템 스텟 반영하려면 
+                    Console.WriteLine($"방어력 :  {player.player_DeffencePower} ");    // 
                     Console.WriteLine($"체  력 :  {player.player_Hp}");
                     Console.WriteLine($"Gold   :  {player.player_Gold} G");
                     Console.WriteLine("\n0. 나가기");
@@ -356,7 +356,7 @@ namespace SpartaTextRPG
                             break;
                         case 1:
                             Console.Clear();
-                            //장착 관리 창
+                            Show_Iventory_Equip_Manage();
                             continue;
                         default:
                             WrongInput();
@@ -373,7 +373,6 @@ namespace SpartaTextRPG
                     Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.\n");
                     Console.WriteLine("[아이템 목록]");
                     //보유 아이템 목록
-                    Console.WriteLine("\n1. 장착 관리");
                     Console.WriteLine("\n0. 나가기");
                     Console.WriteLine("\n원하시는 행동을 숫자로 입력해주세요.\n>> ");
                     int caseNumber = int.Parse(Console.ReadLine());
@@ -382,10 +381,6 @@ namespace SpartaTextRPG
                         case 0:
                             Console.Clear();
                             break;
-                        case 1:
-                            Console.Clear();
-                            //장착 관리 창
-                            continue;
                         default:
                             WrongInput();
                             continue;
@@ -441,12 +436,14 @@ namespace SpartaTextRPG
                     Console.WriteLine("[보유 골드]");
                     Console.WriteLine($" {player.player_Gold} G\n");
                     Console.WriteLine("[아이템 목록]");
+                    // 묶어서 처리할수 있나?
                     armor_Common.ShowBuyItem(armor_Common);
                     armor_Uncommon.ShowBuyItem(armor_Uncommon);
                     armor_Rare.ShowBuyItem(armor_Rare);
                     weapon_Common.ShowBuyItem(weapon_Common);
                     weapon_Uncommon.ShowBuyItem(weapon_Uncommon);
                     weapon_Rare.ShowBuyItem(weapon_Rare);
+                    //
                     Console.WriteLine("\n0. 나가기");
                     Console.WriteLine("\n원하시는 행동을 숫자로 입력해주세요.\n>> ");
                     int caseNumber = int.Parse(Console.ReadLine());
